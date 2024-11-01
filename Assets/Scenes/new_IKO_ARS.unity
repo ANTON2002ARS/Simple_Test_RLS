@@ -712,6 +712,7 @@ RectTransform:
   m_Children:
   - {fileID: 1096754309}
   - {fileID: 1971921591}
+  - {fileID: 912331038}
   - {fileID: 1461640719}
   m_Father: {fileID: 2054083309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1181,7 +1182,7 @@ GameObject:
   - component: {fileID: 444172994}
   - component: {fileID: 444172993}
   m_Layer: 5
-  m_Name: ButtonR1
+  m_Name: Outside_M1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1268,11 +1269,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1772244805}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Placemjent_Button
-        m_Mode: 2
+        m_MethodName: Placement_M1
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 8f9e82d055acb36cbbf7f851b0b4b13d, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Options, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1803,7 +1804,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 536448607}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1772244805}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Back_To_Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &536448607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2716,16 +2729,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912331037}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0002, y: 1.0002, z: 1.0002}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1971921591}
+  m_Father: {fileID: 145738258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 887.1768, y: -563.9928}
   m_SizeDelta: {x: 280, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912331039
@@ -4198,7 +4211,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1772244805}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Back_To_Menu
+        m_MethodName: Sure_To_Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4316,7 +4329,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0412\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B?"
+  m_Text: "\u0412\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B?\n\u0422\u0435\u0441\u0442
+    \u0431\u0443\u0434\u0435\u0442 \u0437\u0430\u043A\u043E\u043D\u0447\u0435\u043D
+    !!!"
 --- !u!222 &1427155117
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4339,7 +4354,7 @@ GameObject:
   - component: {fileID: 1442466103}
   - component: {fileID: 1442466102}
   m_Layer: 5
-  m_Name: ButtonR3
+  m_Name: Outside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4426,11 +4441,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1772244805}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Placement_Button
-        m_Mode: 2
+        m_MethodName: Placement_Outside
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 1f8aa4c6940478dee9a690e0c2e31422, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Options, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4931,7 +4946,7 @@ GameObject:
   - component: {fileID: 1748937797}
   - component: {fileID: 1748937796}
   m_Layer: 5
-  m_Name: ButtonR2
+  m_Name: Outside_M2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5018,11 +5033,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1772244805}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Placement_Button
-        m_Mode: 2
+        m_MethodName: Placement_M2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 675ce918f02facce0a844bcf8b14592a, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Options, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5190,8 +5205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ba9eedcc87f69e8a7442231ce7ae84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  select_color: {r: 0.540944, g: 0.4884319, b: 0.12872425, a: 1}
-  main_color: {r: 1, g: 1, b: 1, a: 1}
+  select_color: {r: 0.71345896, g: 0.6066425, b: 0.16144258, a: 1}
+  main_color: {r: 0.80784315, g: 0.80784315, b: 0.80784315, a: 1}
   menu: {fileID: 1876571334}
   buttons_roles:
   - {fileID: 91770878}
@@ -5201,11 +5216,19 @@ MonoBehaviour:
   - {fileID: 818626960}
   buttons_deoloyment: {fileID: 1905129613}
   buttons_folding: {fileID: 773065052}
+  Panel_Sure_Check: {fileID: 1863036017}
+  Panel_Check_Result: {fileID: 2065848895}
   actions_select: {fileID: 145738257}
   Action_deoloyment: {fileID: 11400000, guid: 9b7fa9c8723ed0c4292ca2ed5be244da, type: 2}
   Action_folding: {fileID: 11400000, guid: 9a802c6d572039ca9af1e4354d65d76a, type: 2}
   Button_Prefab: {fileID: 1587914691279717182, guid: 88589a051a394ea91bb169f037be304e, type: 3}
   Content: {fileID: 2055289466}
+  M1_button: {fileID: 444172994}
+  M2_button: {fileID: 1748937797}
+  Outside_button: {fileID: 1442466103}
+  M1: {fileID: 11400000, guid: 8f9e82d055acb36cbbf7f851b0b4b13d, type: 2}
+  M2: {fileID: 11400000, guid: 675ce918f02facce0a844bcf8b14592a, type: 2}
+  Outside: {fileID: 11400000, guid: 1f8aa4c6940478dee9a690e0c2e31422, type: 2}
 --- !u!1 &1778260376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5483,7 +5506,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1824537259}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1772244805}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Cansel_Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1824537259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5698,7 +5733,6 @@ GameObject:
   - component: {fileID: 1863036022}
   - component: {fileID: 1863036021}
   - component: {fileID: 1863036020}
-  - component: {fileID: 1863036019}
   m_Layer: 5
   m_Name: SureCheck
   m_TagString: Untagged
@@ -5726,18 +5760,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1863036019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863036017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b10f8040a2072548bf5e5def41de89f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1863036020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6268,13 +6290,12 @@ RectTransform:
   - {fileID: 1209383745}
   - {fileID: 105884382}
   - {fileID: 791959169}
-  - {fileID: 912331038}
   m_Father: {fileID: 145738258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 3, y: -300}
-  m_SizeDelta: {x: 1060, y: 70}
+  m_SizeDelta: {x: 780, y: 70}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1971921592
 MonoBehaviour:
@@ -6587,6 +6608,7 @@ GameObject:
   - component: {fileID: 2065848900}
   - component: {fileID: 2065848899}
   - component: {fileID: 2065848898}
+  - component: {fileID: 2065848901}
   m_Layer: 5
   m_Name: CheckResult
   m_TagString: Untagged
@@ -6666,6 +6688,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065848895}
   m_CullTransparentMesh: 1
+--- !u!114 &2065848901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065848895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889bc069d7dc8753d8f78baa035862bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2068456057
 GameObject:
   m_ObjectHideFlags: 0
@@ -6863,6 +6897,10 @@ PrefabInstance:
     - target: {fileID: 4654931566942748103, guid: 80f9a8084203994aaaf598dd5d5d7ae9, type: 3}
       propertyPath: m_Name
       value: Srat
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654931566942748103, guid: 80f9a8084203994aaaf598dd5d5d7ae9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7746207431859846528, guid: 80f9a8084203994aaaf598dd5d5d7ae9, type: 3}
       propertyPath: m_Pivot.x
