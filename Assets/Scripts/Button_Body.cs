@@ -23,10 +23,21 @@ public class Button_Body : MonoBehaviour
         Set_Color(GameManager.instance.select_color);        
     }
 
-    public void button_click(){
-        Set_Color(GameManager.instance.select_color);
-        GameManager.Index_Selected_Element++;
-        Index = GameManager.Index_Selected_Element;
+    public void button_click(){        
+        if(Index == GameManager.Index_Selected_Element && GameManager.Index_Selected_Element !=0){
+            GameManager.Index_Selected_Element--;
+            Index = 0;
+            Set_Color(GameManager.instance.main_color);
+            Debug.Log("Index: " + Index + "  Index_Selected_Element: " + GameManager.Index_Selected_Element);
+        }
+        else{
+            GameManager.Index_Selected_Element++;
+            Index = GameManager.Index_Selected_Element;
+            GameManager.instance.Verify_Passing_Test(Index,VariantAction);
+            Set_Color(GameManager.instance.select_color);
+            Debug.Log("Index: " + Index + "  Index_Selected_Element: " + GameManager.Index_Selected_Element);
+        }
+
         VariantAction.number = Index;
         text_number.text = Index.ToString();
         Debug.Log("Choice: " + VariantAction.ActionName + "  Index: " + Index);

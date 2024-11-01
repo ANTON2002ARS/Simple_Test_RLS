@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,11 +18,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject Panel_Sure_Check;
     [SerializeField] private GameObject Panel_Check_Result;
 
-
     [Header("for Testing")]
     [SerializeField] private GameObject actions_select;
     [SerializeField] private Command Action_deoloyment;
     [SerializeField] private Command Action_folding;
+    [SerializeField] private GameObject[] Stars;
     [SerializeField] private GameObject Button_Prefab;
     [SerializeField] private Transform Content;
     [SerializeField] private Button M1_button;
@@ -33,6 +34,20 @@ public class GameManager : MonoBehaviour
     
     public static GameManager instance;
     private void Awake()=>instance =this;
+    private int _mistake;
+    public int Mistakes{
+        get{return _mistake;}
+        set{
+            _mistake = value;
+            if(_mistake >= Stars.Length)                
+                Fall_Test(_mistake); 
+            else if(_mistake == 0)
+                Active_Stars(true);  
+            else
+                Stars[_mistake-1].SetActive(false);            
+            Debug.Log("Get mistakes, count: " + _mistake);
+        }
+    }
 
     public static int Index_Selected_Element;
 
@@ -58,12 +73,77 @@ public class GameManager : MonoBehaviour
     public void Back_To_Menu(){
         menu.SetActive(true);
         Panel_Sure_Check.SetActive(false);
-        actions_select.SetActive(false);
+        Panel_Check_Result.SetActive(false);
         actions_select.SetActive(false);
         role = 0;        
         test_rls = Option_Test.none;
         Reset_Color_Button_Menu();
         Debug.Log("END TEST");
+    }
+    public void Verify_Passing_Test(int Index_of_element, TestVariantAction variantaction){
+        List<TestVariantAction> target_list =null;
+        if(test_rls == Option_Test.is_deoloyment){            
+            switch (role)
+            {
+                case 1:
+                target_list = Action_deoloyment.ActionsPos1.ToList();
+                break;
+                case 2:
+                target_list = Action_deoloyment.ActionsPos2.ToList();
+                break;
+                case 3:
+                target_list = Action_deoloyment.ActionsPos3.ToList();
+                break;
+                case 4:
+                target_list = Action_deoloyment.ActionsPos4.ToList();
+                break;
+                case 5:
+                target_list = Action_deoloyment.ActionsPos5.ToList();
+                break;                
+            }
+        }
+        else if(test_rls == Option_Test.is_folding){
+            switch (role)
+            {
+                case 1:
+                target_list = Action_folding.ActionsPos1.ToList();
+                break;
+                case 2:
+                target_list = Action_folding.ActionsPos2.ToList();
+                break;
+                case 3:
+                target_list = Action_folding.ActionsPos3.ToList();
+                break;
+                case 4:
+                target_list = Action_folding.ActionsPos4.ToList();
+                break;
+                case 5:
+                target_list = Action_folding.ActionsPos5.ToList();
+                break;                
+            }
+        }
+
+        if(target_list.Count ==0){
+            Debug.LogError("ERROR!!! List is null");
+            return;
+        }
+
+
+        if(target_list[Index_of_element-1] == variantaction){
+            Debug.Log("TRUE");            
+        }
+        else{
+            Debug.Log("FALSE");
+            Mistakes++;            
+        }
+
+        if(Index_of_element >= target_list.Count){
+            Debug.Log("Index_of_element: " + Index_of_element.ToString());
+            Pass_Test(_mistake);
+        }
+        
+
+
     }
 
     private void Start_Test(){
@@ -77,13 +157,19 @@ public class GameManager : MonoBehaviour
         Placement_Outside();
     }
 
-    private void Pass_Test(){
-
+    private void Pass_Test(int mistakes){
+        Panel_Check_Result.SetActive(true);   
+        Panel_Check_Result.GetComponent<Showing_Result_Test>().Show_Pass_Test(mistakes);  
+        Debug.Log("Count Mistakes: " + mistakes);
     }
     
-    private void Fall_Test(){
-
+    private void Fall_Test(int mistakes){
+        Panel_Check_Result.SetActive(true);  
+        Panel_Check_Result.GetComponent<Showing_Result_Test>().Show_Fail_Test(mistakes);
+        Debug.Log("Count Mistakes: " + mistakes);
     }
+
+    
 
     public void Set_Role(int r){        
         role =r;
@@ -151,7 +237,8 @@ public class GameManager : MonoBehaviour
             v.number = 0;
         foreach(TestVariantAction v in Outside.variants_folding)
             v.number =0;
-        Index_Selected_Element = 0;        
+        Index_Selected_Element = 0;  
+        Mistakes = 0;            
     }
     
     private void Reset_Color_Button_Navigation(){
@@ -165,6 +252,11 @@ public class GameManager : MonoBehaviour
             Switch_color(b, main_color);        
         Switch_color(buttons_deoloyment, main_color);
         Switch_color(buttons_folding, main_color);     
+    }
+    
+    private void Active_Stars(bool is_active){
+        foreach(var star in Stars)
+            star.SetActive(is_active);
     }
 
     private void Switch_color (Button b, Color c)=> b.gameObject.GetComponent<Image>().color = c;
