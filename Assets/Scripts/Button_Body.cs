@@ -31,9 +31,15 @@ public class Button_Body : MonoBehaviour
             Debug.Log("Index: " + Index + "  Index_Selected_Element: " + GameManager.Index_Selected_Element);
         }
         else{
-            GameManager.Index_Selected_Element++;
-            Index = GameManager.Index_Selected_Element;
-            GameManager.instance.Verify_Passing_Test(Index,VariantAction);
+            GameManager.Index_Selected_Element++; 
+            Index = GameManager.Index_Selected_Element;                         
+            if(!GameManager.instance.Verify_Passing_Test(Index,VariantAction)){
+                GameManager.Index_Selected_Element--;
+                Index = 0;
+                return;
+            }
+
+                      
             Set_Color(GameManager.instance.select_color);
             Debug.Log("Index: " + Index + "  Index_Selected_Element: " + GameManager.Index_Selected_Element);
         }

@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         Reset_Color_Button_Menu();
         Debug.Log("END TEST");
     }
-    public void Verify_Passing_Test(int Index_of_element, TestVariantAction variantaction){
+    public bool Verify_Passing_Test(int Index_of_element, TestVariantAction variantaction){
         List<TestVariantAction> target_list =null;
         if(test_rls == Option_Test.is_deoloyment){            
             switch (role)
@@ -125,25 +125,23 @@ public class GameManager : MonoBehaviour
 
         if(target_list.Count ==0){
             Debug.LogError("ERROR!!! List is null");
-            return;
-        }
-
-
-        if(target_list[Index_of_element-1] == variantaction){
-            Debug.Log("TRUE");            
+            return false;
+        }        
+        
+        if(target_list[Index_of_element -1] == variantaction){   
+            if(Index_of_element >= target_list.Count){           
+                Pass_Test(_mistake);            
+            } 
+            Debug.Log("Status TRUE Index_of_element: " + Index_of_element.ToString());
+            return true;           
         }
         else{
-            Debug.Log("FALSE");
+            Debug.Log("Status FALSE");
+            Debug.Log("Correct: " + target_list[Index_of_element -1].ActionName);
+            Debug.Log("Receiv: "  + variantaction.ActionName);
             Mistakes++;            
+            return false;
         }
-
-        if(Index_of_element >= target_list.Count){
-            Debug.Log("Index_of_element: " + Index_of_element.ToString());
-            Pass_Test(_mistake);
-        }
-        
-
-
     }
 
     private void Start_Test(){
