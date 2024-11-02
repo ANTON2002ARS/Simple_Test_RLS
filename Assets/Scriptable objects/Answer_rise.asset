@@ -12,12 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eed8b9f70e7d724cb6faf9f671afa6e, type: 3}
   m_Name: Answer_rise
   m_EditorClassIdentifier: 
-  CommandName: "\u0420\u0430\u0431\u043E\u0442\u0430 \u0440\u0430\u0441\u0447\u0435\u0442\u0430
+  Name_Command: "\u0420\u0430\u0431\u043E\u0442\u0430 \u0440\u0430\u0441\u0447\u0435\u0442\u0430
     \u043F\u043E \u0440\u0430\u0437\u0432\u0435\u0440\u0442\u044B\u0432\u0430\u043D\u0438\u044E
     \u0441\u0442\u0430\u043D\u0446\u0438\u0438"
-  AppendixNumDescription: "\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435
-    1"
-  ShowIkoButton: 0
   Enabled_p1: 1
   CommandDescriptionPos1: 
   ActionsPos1:
@@ -102,5 +99,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3bbc79a11cda6824792c120cf294b770, type: 2}
   - {fileID: 11400000, guid: 76ced82b2ebae0697be1b22d1ba470e5, type: 2}
   - {fileID: 11400000, guid: d38324124e49f194b8ad810e71fed554, type: 2}
-  IsTestOnly: 0
-  IsFolding: 0

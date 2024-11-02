@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Command", menuName = "ScriptableObjects/Command", order = 0)]
 public class Command : ScriptableObject
 {
+    public string Name_Command;
     [Header("Pos 1")]
     public bool Enabled_p1 = true;
     public string CommandDescriptionPos1;

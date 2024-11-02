@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] Stars;
     [SerializeField] private GameObject Button_Prefab;
     [SerializeField] private Transform Content;
+    [SerializeField] private Text text_timer;
     [SerializeField] private Button M1_button;
     [SerializeField] private Button M2_button;
     [SerializeField] private Button Outside_button;
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Options M2;
     [SerializeField] private Options Outside;
     
+    public float totalTime = 540; // 9 минут в секундах    
+    private bool start_timer = false;
     public static GameManager instance;
     private void Awake()=>instance =this;
     private int _mistake;
@@ -65,7 +69,56 @@ public class GameManager : MonoBehaviour
         Panel_Check_Result.SetActive(false);
         Panel_Sure_Check.SetActive(false);
         actions_select.SetActive(false);
+
+        //Creat_File(Action_deoloyment);
+        //Creat_File(Action_folding);
     }  
+
+    public void Update()
+    {
+        if (start_timer)
+        {
+            totalTime -= Time.deltaTime;
+            if (totalTime <= 0)
+            {
+                totalTime = 0;
+                start_timer = false; // Остановить таймер
+                Fall_Test(_mistake);
+            }
+            UpdateTimerText();
+        }
+    }
+
+    private void UpdateTimerText()
+    {
+        int minutes = Mathf.FloorToInt(totalTime / 60);
+        int seconds = Mathf.FloorToInt(totalTime % 60);
+        text_timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    private void Creat_File(Command command){
+        string file_name = "ответы для " + command.Name_Command + ".ini";
+        string file_path = "Assets/"; 
+        string full_path = Path.Combine(file_path, file_name);
+        
+        using (StreamWriter writer = new StreamWriter(full_path)){
+            writer.WriteLine("Для номера 1:");
+            foreach(var s in command.ActionsPos1)
+                writer.WriteLine(s.ActionName);
+            writer.WriteLine("Для номера 2:");
+            foreach(var s in command.ActionsPos2)
+                writer.WriteLine(s.ActionName);
+                writer.WriteLine("Для номера 3:");
+            foreach(var s in command.ActionsPos3)
+                writer.WriteLine(s.ActionName);
+                writer.WriteLine("Для номера 4:");
+            foreach(var s in command.ActionsPos4)
+                writer.WriteLine(s.ActionName);
+                writer.WriteLine("Для номера 5:");
+            foreach(var s in command.ActionsPos5)
+                writer.WriteLine(s.ActionName);
+        }
+    }
 
     public void Sure_To_Menu()=>Panel_Sure_Check.SetActive(true);
     public void Cansel_Menu()=>Panel_Sure_Check.SetActive(false);
@@ -79,6 +132,7 @@ public class GameManager : MonoBehaviour
         test_rls = Option_Test.none;
         Reset_Color_Button_Menu();
         Debug.Log("END TEST");
+        start_timer = false;
     }
     public bool Verify_Passing_Test(int Index_of_element, TestVariantAction variantaction){
         List<TestVariantAction> target_list =null;
@@ -153,6 +207,8 @@ public class GameManager : MonoBehaviour
         actions_select.SetActive(true);
         Reset_ALL_Elements();
         Placement_Outside();
+        start_timer =true;
+        totalTime = 540;
     }
 
     private void Pass_Test(int mistakes){
