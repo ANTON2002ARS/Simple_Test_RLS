@@ -12,12 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eed8b9f70e7d724cb6faf9f671afa6e, type: 3}
   m_Name: Answer_folding
   m_EditorClassIdentifier: 
-  CommandName: "\u0420\u0430\u0431\u043E\u0442\u0430 \u0440\u0430\u0441\u0447\u0435\u0442\u0430
-    \u043F\u043E \u0441\u0432\u0435\u0440\u0442\u044B\u0432\u0430\u043D\u0438\u044E
-    \u0441\u0442\u0430\u043D\u0446\u0438\u0438"
-  AppendixNumDescription: "\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435
-    1"
-  ShowIkoButton: 0
   Enabled_p1: 1
   CommandDescriptionPos1: 
   ActionsPos1:
@@ -85,7 +79,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 82c20f46e61f465cba598c2d07bd30b9, type: 2}
   - {fileID: 11400000, guid: fd7d301f5cdbe8db1bb3f9dfab4d215e, type: 2}
   - {fileID: 11400000, guid: e55f4fa4a5aa0f37f88d3c424853025d, type: 2}
-  - {fileID: 11400000, guid: 3a302f7d893d56845ac0b0b677752854, type: 2}
+  - {fileID: 11400000, guid: c32c81348699e41f2a67b77497abb42c, type: 2}
   - {fileID: 11400000, guid: 7ca5b7fa3bae24a7a92124bc0ac50e8e, type: 2}
   - {fileID: 11400000, guid: 67f76fd73d30971e8b78fd4616ac1dee, type: 2}
   - {fileID: 11400000, guid: 75041cf68421b37a3a002583cd5c5d1d, type: 2}
@@ -101,10 +95,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c8877d46159a9fdbe9dfeac74edc3655, type: 2}
   - {fileID: 11400000, guid: fd7d301f5cdbe8db1bb3f9dfab4d215e, type: 2}
   - {fileID: 11400000, guid: e55f4fa4a5aa0f37f88d3c424853025d, type: 2}
-  - {fileID: 11400000, guid: 3a302f7d893d56845ac0b0b677752854, type: 2}
+  - {fileID: 11400000, guid: c32c81348699e41f2a67b77497abb42c, type: 2}
   - {fileID: 11400000, guid: 7ca5b7fa3bae24a7a92124bc0ac50e8e, type: 2}
   - {fileID: 11400000, guid: 67f76fd73d30971e8b78fd4616ac1dee, type: 2}
   - {fileID: 11400000, guid: 75041cf68421b37a3a002583cd5c5d1d, type: 2}
   - {fileID: 11400000, guid: d38324124e49f194b8ad810e71fed554, type: 2}
-  IsTestOnly: 0
-  IsFolding: 1
