@@ -20,28 +20,28 @@ public class Button_Body : MonoBehaviour
         if(testVariantAction.number == 0)
             return;
         text_number.text = testVariantAction.number.ToString();
-        Set_Color(GameManager.instance.select_color);        
+        Set_Color(Game_Test.instance.select_color);        
     }
 
     public void button_click(){        
-        if(Index == GameManager.Index_Selected_Element && GameManager.Index_Selected_Element !=0){
-            GameManager.Index_Selected_Element--;
+        if(Index == Game_Test.Index_Selected_Element && Game_Test.Index_Selected_Element !=0){
+            Game_Test.Index_Selected_Element--;
             Index = 0;
-            Set_Color(GameManager.instance.main_color);
-            Debug.Log("Index: " + Index + "  Index_Selected_Element: " + GameManager.Index_Selected_Element);
+            Set_Color(Game_Test.instance.main_color);
+            Debug.Log("Index: " + Index + "  Index_Selected_Element: " + Game_Test.Index_Selected_Element);
         }
         else{
-            GameManager.Index_Selected_Element++; 
-            Index = GameManager.Index_Selected_Element;                         
-            if(!GameManager.instance.Verify_Passing_Test(Index,VariantAction)){
-                GameManager.Index_Selected_Element--;
+            Game_Test.Index_Selected_Element++; 
+            Index = Game_Test.Index_Selected_Element;                         
+            if(!Game_Test.instance.Verify_Passing_Test(Index,VariantAction)){
+                Game_Test.Index_Selected_Element--;
                 Index = 0;
                 return;
             }
 
                       
-            Set_Color(GameManager.instance.select_color);
-            Debug.Log("Index: " + Index + "  Index_Selected_Element: " + GameManager.Index_Selected_Element);
+            Set_Color(Game_Test.instance.select_color);
+            Debug.Log("Index: " + Index + "  Index_Selected_Element: " + Game_Test.Index_Selected_Element);
         }
 
         VariantAction.number = Index;

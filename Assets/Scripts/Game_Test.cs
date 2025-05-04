@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class Game_Test : MonoBehaviour
 {
     public  Color select_color;
     public  Color main_color;
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     
     public float totalTime = 540; // 9 минут в секундах    
     private bool start_timer = false;
-    public static GameManager instance;
+    public static Game_Test instance;
     private void Awake()=>instance =this;
     private int _mistake;
     public int Mistakes{
